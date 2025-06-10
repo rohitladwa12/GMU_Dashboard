@@ -57,70 +57,12 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #5B1F1F;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
             min-height: 100vh;
-        }
-
-        /* Navbar Placeholder */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: var(--primary-color);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .navbar h2 {
-            color: white;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        /* Sidebar Placeholder */
-        .sidebar {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 280px;
-            height: calc(100vh - 60px);
-            background: white;
-            box-shadow: var(--shadow);
-            z-index: 999;
-            padding: 20px 0;
-        }
-
-        .sidebar-item {
-            padding: 15px 20px;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-item:hover {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        .sidebar-item.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .sidebar-item i {
-            margin-right: 10px;
-            width: 20px;
         }
 
         .content {
@@ -131,16 +73,17 @@
         }
 
         .page-header {
-            background: white;
+            background: var(--primary-color);
             padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
             margin-bottom: 30px;
             border-left: 5px solid var(--primary-color);
         }
 
         .page-header h1 {
-            color: var(--primary-color);
+            background: linear-gradient(to left, #ecc35c, #f7f3b7, #ecc35c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 28px;
             font-weight: 700;
             margin: 0 0 10px 0;
@@ -151,10 +94,17 @@
         .page-header h1 i {
             margin-right: 15px;
             font-size: 24px;
+            background: linear-gradient(to left, #ecc35c, #f7f3b7, #ecc35c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .page-header p {
-            color: #666;
+            background: linear-gradient(to left, #ecc35c, #f7f3b7, #ecc35c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 0;
             font-size: 16px;
         }
@@ -171,7 +121,7 @@
             color: white;
             padding: 20px 30px;
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -475,8 +425,8 @@
 </head>
 
 <body>
-    <?php include('sidebar.php'); ?>
-    <?php include('navbar.php'); ?>
+    <?php include 'sidebar.php'; ?>
+    <?php include 'navbar.php'; ?>
 
     <div class="content">
         <div class="page-header">
@@ -534,45 +484,45 @@
                 ajax: {
                     url: 'fetch_enquiries.php',
                     type: 'POST',
-                    data: function (d) {
-                        // Convert searchPanes data to JSON string
-                        if (d.searchPanes) {
-                            d.searchPanes = JSON.stringify(d.searchPanes);
-                        }
-                        return d;
-                    },
+                    dataType: 'json',
                     dataSrc: function (json) {
-                        // Update statistics
-                        $('#totalRecords').text('Total: ' + json.recordsTotal.toLocaleString());
-                        $('#filteredRecords').text('Showing: ' + json.recordsFiltered.toLocaleString());
-                        return json.data;
+                        // Update stats
+                        $('#totalRecords').text('Total: ' + (json.recordsTotal || 0));
+                        $('#filteredRecords').text('Showing: ' + (json.recordsFiltered || 0));
+
+                        // Ensure the response is properly structured
+                        return Array.isArray(json.data) ? json.data : [];
                     },
-                    error: function (xhr, error, thrown) {
-                        console.error('DataTables AJAX Error:', {
-                            error: error,
-                            thrown: thrown,
-                            response: xhr.responseText,
-                            status: xhr.status
-                        });
-
-                        // Show user-friendly error message
-                        const errorMsg = xhr.status === 0 ?
-                            'Network connection error. Please check your connection.' :
-                            `Server error (${xhr.status}). Please contact administrator.`;
-
-                        alert(errorMsg);
+                    error: function (xhr, error, code) {
+                        console.error('AJAX Error:', error, code);
+                        console.error('Response:', xhr.responseText);
                     }
                 },
                 searchPanes: {
-                    layout: 'columns-4',
+                    layout: 'columns-2',
                     initCollapsed: true,
-                    cascadePanes: true,
-                    threshold: 0.5,
+                    cascadePanes: false,
+                    clear: true,
+                    viewTotal: true,
+                    threshold: 0.1, // Only show options appearing in 0.1% of records (200+ times)
+                    emptyMessage: 'No data available for filtering',
+                    columns: [1, 2, 3, 5, 6, 7, 8, 12], // All your columns
                     dtOpts: {
-                        select: {
-                            style: 'multi'
-                        },
-                        order: [[1, 'desc']]
+                        dom: 'tp',
+                        searching: false,
+                        paging: true,
+                        pageLength: 50,
+                        lengthChange: false,
+                        info: false,
+                        ordering: false,
+                        deferRender: true, // Improve performance
+                        scroller: true // Virtual scrolling for large lists
+                    },
+                    orthogonal: {
+                        display: 'display',
+                        sort: 'sort',
+                        search: 'filter',
+                        type: 'type'
                     }
                 },
                 buttons: [
@@ -601,26 +551,48 @@
                 ],
                 columns: [
                     {
-                        data: 0,
+                        data: 'enquiry_no',
                         title: 'Enquiry No',
                         className: 'font-weight-bold'
                     },
-                    { data: 1, title: 'Source' },
                     {
-                        data: 2,
-                        title: 'Status',
+                        data: 'source',
+                        title: 'Source',
                         render: function (data, type, row) {
-                            if (type === 'display') {
-                                const statusClass = data.toLowerCase() === 'active' ? 'status-active' :
-                                    data.toLowerCase() === 'pending' ? 'status-pending' : 'status-inactive';
-                                return `<span class="status-badge ${statusClass}">${data}</span>`;
+                            // Optimize for SearchPanes
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
                             }
                             return data;
                         }
                     },
-                    { data: 3, title: 'Admission Year' },
                     {
-                        data: 4,
+                        data: 'status',
+                        title: 'Status',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            if (type === 'display') {
+                                const statusClass = data && data.toLowerCase() === 'active' ? 'status-active' :
+                                    data && data.toLowerCase() === 'pending' ? 'status-pending' : 'status-inactive';
+                                return `<span class="status-badge ${statusClass}">${data || ''}</span>`;
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'admission_year',
+                        title: 'Admission Year',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString() : '';
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'enquiry_date',
                         title: 'Enquiry Date',
                         render: function (data, type, row) {
                             if (type === 'display' && data) {
@@ -629,13 +601,49 @@
                             return data;
                         }
                     },
-                    { data: 5, title: 'College' },
-                    { data: 6, title: 'Programme' },
-                    { data: 7, title: 'Course' },
-                    { data: 8, title: 'Discipline' },
-                    { data: 9, title: 'Name' },
                     {
-                        data: 10,
+                        data: 'college',
+                        title: 'College',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'programme',
+                        title: 'Programme',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'course',
+                        title: 'Course',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'discipline',
+                        title: 'Discipline',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            return data;
+                        }
+                    },
+                    { data: 'name', title: 'Name' },
+                    {
+                        data: 'mobile_no',
                         title: 'Mobile No',
                         render: function (data, type, row) {
                             if (type === 'display' && data) {
@@ -645,7 +653,7 @@
                         }
                     },
                     {
-                        data: 11,
+                        data: 'email',
                         title: 'Email',
                         render: function (data, type, row) {
                             if (type === 'display' && data) {
@@ -654,14 +662,26 @@
                             return data;
                         }
                     },
-                    { data: 12, title: 'State' }
+                    {
+                        data: 'state',
+                        title: 'State',
+                        render: function (data, type, row) {
+                            if (type === 'filter' || type === 'sort') {
+                                return data ? data.toString().trim() : '';
+                            }
+                            return data;
+                        }
+                    }
                 ],
                 columnDefs: [
                     {
                         searchPanes: {
-                            show: true
+                            show: true,
+                            initCollapsed: true,
+                            threshold: 0.1, // Individual column threshold
+                            emptyMessage: 'No options available'
                         },
-                        targets: [1, 2, 3, 5, 6, 7, 8, 12] // Source, Status, Year, College, Programme, Course, Discipline, State
+                        targets: [1, 2, 3, 5, 6, 7, 8, 12] // Source, Status, Admission Year, College, Programme, Course, Discipline, State
                     },
                     {
                         searchPanes: {
@@ -689,19 +709,35 @@
                         last: '<i class="fas fa-angle-double-right"></i>',
                         next: '<i class="fas fa-angle-right"></i>',
                         previous: '<i class="fas fa-angle-left"></i>'
+                    },
+                    searchPanes: {
+                        clearMessage: 'Clear All',
+                        collapse: { 0: 'SearchPanes', _: 'SearchPanes (%d)' },
+                        count: '{total}',
+                        countFiltered: '{shown} ({total})',
+                        emptyPanes: 'Loading filters...',
+                        loadMessage: 'Loading SearchPanes...',
+                        title: 'Filters Active - %d'
                     }
                 },
                 stateSave: true,
                 stateDuration: 60 * 60 * 24, // 24 hours
+                deferRender: true, // Improve performance with large datasets
                 initComplete: function (settings, json) {
                     console.log('DataTables initialized successfully');
-                    // Add any initialization callbacks here
+                    // Initialize stats if data is available
+                    if (json) {
+                        $('#totalRecords').text('Total: ' + (json.recordsTotal || 0));
+                        $('#filteredRecords').text('Showing: ' + (json.recordsFiltered || 0));
+                    }
                 }
             });
 
-            // Add event listeners for additional functionality
-            table.on('draw', function () {
-                console.log('Table redrawn');
+            // Update stats on each draw
+            table.on('draw', function (e, settings) {
+                const info = table.page.info();
+                $('#filteredRecords').text('Showing: ' + info.recordsDisplay);
+                console.log('Table redrawn - showing', info.recordsDisplay, 'of', info.recordsTotal, 'records');
             });
 
             // Handle responsive menu toggle (for mobile)

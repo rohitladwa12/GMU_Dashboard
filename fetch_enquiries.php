@@ -2,17 +2,24 @@
 /**
  * Professional Admission Enquiry Data Handler
  * Handles DataTables server-side processing with SearchPanes
+ * Fixed version for proper JSON handling
  */
 
-// Set error reporting for development (disable in production)
+// Error handling
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Set content type and CORS headers
+// Set proper headers
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Database configuration
 class DatabaseConfig {
@@ -25,9 +32,11 @@ class DatabaseConfig {
 
 class EnquiryDataHandler {
     private $conn;
+    private $input = [];
+    
     private $columns = [
         'enquiry_no',
-        'source',
+        'source', 
         'status',
         'admission_year',
         'enquiry_date',
@@ -41,10 +50,11 @@ class EnquiryDataHandler {
         'state'
     ];
     
-    private $searchableColumns = [1, 2, 3, 5, 6, 7, 8, 12]; // Indices for SearchPanes
+    private $searchableColumns = [1, 2, 3, 5, 6, 7, 8, 12];
+    
     private $filterableColumns = [
         1 => 'source',
-        2 => 'status',
+        2 => 'status', 
         3 => 'admission_year',
         5 => 'college',
         6 => 'programme',
@@ -54,7 +64,36 @@ class EnquiryDataHandler {
     ];
 
     public function __construct() {
+        $this->parseInput();
         $this->initializeDatabase();
+    }
+
+    private function parseInput() {
+        // Handle different input methods
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+            
+            if (strpos($contentType, 'application/json') !== false) {
+                // Handle JSON input
+                $rawInput = file_get_contents('php://input');
+                $this->input = json_decode($rawInput, true);
+                
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    $this->sendErrorResponse("Invalid JSON input");
+                }
+            } else {
+                // Handle form data (standard DataTables POST)
+                $this->input = $_POST;
+            }
+        } else {
+            // Handle GET parameters
+            $this->input = $_GET;
+        }
+        
+        // Ensure input is array
+        if (!is_array($this->input)) {
+            $this->input = [];
+        }
     }
 
     private function initializeDatabase() {
@@ -69,338 +108,207 @@ class EnquiryDataHandler {
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
+                PDO::ATTR_EMULATE_PREPARES => false
             ];
 
             $this->conn = new PDO($dsn, DatabaseConfig::USERNAME, DatabaseConfig::PASSWORD, $options);
             
         } catch (PDOException $e) {
-            $this->sendErrorResponse("Database connection failed: " . $e->getMessage());
+            error_log("Database connection failed: " . $e->getMessage());
+            $this->sendErrorResponse("Database connection failed");
         }
     }
 
     public function processRequest() {
         try {
-            // Validate request method
-            if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-                throw new Exception("Only POST requests are allowed");
+            // Extract and validate parameters
+            $draw = isset($this->input['draw']) ? (int)$this->input['draw'] : 1;
+            $start = isset($this->input['start']) ? max(0, (int)$this->input['start']) : 0;
+            $length = isset($this->input['length']) ? min(1000, max(1, (int)$this->input['length'])) : 25;
+            
+            // Search value
+            $searchValue = '';
+            if (isset($this->input['search'])) {
+                if (is_array($this->input['search']) && isset($this->input['search']['value'])) {
+                    $searchValue = trim($this->input['search']['value']);
+                } elseif (is_string($this->input['search'])) {
+                    $searchValue = trim($this->input['search']);
+                }
             }
-
-            // Get request parameters
-            $draw = $this->getIntParam('draw', 1);
-            $start = $this->getIntParam('start', 0);
-            $length = $this->getIntParam('length', 10);
-            $searchValue = $this->getStringParam('search.value', '');
-            $orderColumn = $this->getIntParam('order.0.column', 0);
-            $orderDir = $this->getStringParam('order.0.dir', 'desc');
             
-            // Validate order direction
-            $orderDir = in_array(strtolower($orderDir), ['asc', 'desc']) ? $orderDir : 'desc';
-            
-            // Validate order column
-            if ($orderColumn < 0 || $orderColumn >= count($this->columns)) {
-                $orderColumn = 0;
+            // Order parameters
+            $orderColumn = 0;
+            $orderDir = 'DESC';
+            if (isset($this->input['order']) && is_array($this->input['order']) && count($this->input['order']) > 0) {
+                $orderColumn = max(0, min(count($this->columns) - 1, (int)($this->input['order'][0]['column'] ?? 0)));
+                $orderDir = strtoupper($this->input['order'][0]['dir'] ?? 'DESC');
+                $orderDir = in_array($orderDir, ['ASC', 'DESC']) ? $orderDir : 'DESC';
             }
 
             // Build base query
             $baseQuery = "SELECT " . implode(", ", $this->columns) . " FROM ad_enquiry";
-            $whereClause = " WHERE 1=1";
+            
+            // Build WHERE clause and parameters
+            $whereConditions = [];
             $params = [];
-
-            // Handle SearchPane filters
-            $searchPaneFilters = $this->processSearchPanes();
-            if (!empty($searchPaneFilters['clause'])) {
-                $whereClause .= $searchPaneFilters['clause'];
-                $params = array_merge($params, $searchPaneFilters['params']);
+            
+            // Add search condition
+            if (!empty($searchValue)) {
+                $searchConditions = [];
+                foreach ($this->searchableColumns as $colIndex) {
+                    if (isset($this->columns[$colIndex])) {
+                        $searchConditions[] = $this->columns[$colIndex] . " LIKE :search";
+                    }
+                }
+                if (!empty($searchConditions)) {
+                    $whereConditions[] = "(" . implode(" OR ", $searchConditions) . ")";
+                    $params['search'] = "%" . $searchValue . "%";
+                }
             }
 
-            // Handle global search
-            $globalSearchFilter = $this->processGlobalSearch($searchValue);
-            if (!empty($globalSearchFilter['clause'])) {
-                $whereClause .= $globalSearchFilter['clause'];
-                $params = array_merge($params, $globalSearchFilter['params']);
+            // Handle SearchPanes filters
+            if (isset($this->input['searchPanes']) && is_array($this->input['searchPanes'])) {
+                foreach ($this->input['searchPanes'] as $columnIndex => $selectedValues) {
+                    if (!empty($selectedValues) && is_array($selectedValues) && isset($this->filterableColumns[$columnIndex])) {
+                        $column = $this->filterableColumns[$columnIndex];
+                        $placeholders = [];
+                        foreach ($selectedValues as $i => $value) {
+                            $paramKey = "filter_{$columnIndex}_{$i}";
+                            $placeholders[] = ":" . $paramKey;
+                            $params[$paramKey] = $value;
+                        }
+                        if (!empty($placeholders)) {
+                            $whereConditions[] = "$column IN (" . implode(", ", $placeholders) . ")";
+                        }
+                    }
+                }
             }
 
-            // Get total records count
-            $totalRecords = $this->getTotalRecords();
+            // Combine WHERE conditions
+            $whereClause = empty($whereConditions) ? "" : " WHERE " . implode(" AND ", $whereConditions);
 
-            // Get filtered records count
-            $filteredRecords = $this->getFilteredRecords($baseQuery . $whereClause, $params);
+            // Get total count
+            $totalStmt = $this->conn->query("SELECT COUNT(*) FROM ad_enquiry");
+            $recordsTotal = (int)$totalStmt->fetchColumn();
+
+            // Get filtered count
+            $filteredQuery = "SELECT COUNT(*) FROM ad_enquiry" . $whereClause;
+            $filteredStmt = $this->conn->prepare($filteredQuery);
+            foreach ($params as $key => $value) {
+                $filteredStmt->bindValue(":$key", $value);
+            }
+            $filteredStmt->execute();
+            $recordsFiltered = (int)$filteredStmt->fetchColumn();
+
+            // Get data
+            $orderColumnName = $this->columns[$orderColumn];
+            $dataQuery = $baseQuery . $whereClause . " ORDER BY $orderColumnName $orderDir LIMIT :start, :length";
+            
+            $dataStmt = $this->conn->prepare($dataQuery);
+            foreach ($params as $key => $value) {
+                $dataStmt->bindValue(":$key", $value);
+            }
+            $dataStmt->bindValue(':start', $start, PDO::PARAM_INT);
+            $dataStmt->bindValue(':length', $length, PDO::PARAM_INT);
+            $dataStmt->execute();
+            
+            $data = $dataStmt->fetchAll();
 
             // Get SearchPanes data
-            $searchPanesData = $this->getSearchPanesData();
+            $searchPanes = $this->getSearchPanesData();
 
-            // Build final query with ordering and pagination
-            $orderColumnName = $this->columns[$orderColumn];
-            $finalQuery = $baseQuery . $whereClause . " ORDER BY {$orderColumnName} {$orderDir}";
-            
-            if ($length != -1) {
-                $finalQuery .= " LIMIT :start, :length";
-                $params['start'] = $start;
-                $params['length'] = $length;
-            }
-
-            // Execute final query
-            $data = $this->executeDataQuery($finalQuery, $params);
-
-            // Send response
-            $this->sendSuccessResponse([
+            // Prepare response
+            $response = [
                 'draw' => $draw,
-                'recordsTotal' => $totalRecords,
-                'recordsFiltered' => $filteredRecords,
+                'recordsTotal' => $recordsTotal,
+                'recordsFiltered' => $recordsFiltered,
                 'data' => $data,
-                'searchPanes' => $searchPanesData
-            ]);
+                'searchPanes' => [
+                    'options' => $searchPanes
+                ]
+            ];
+
+            // Output JSON response
+            echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+            exit;
 
         } catch (Exception $e) {
+            error_log("Error processing request: " . $e->getMessage());
             $this->sendErrorResponse($e->getMessage());
         }
     }
 
-    private function processSearchPanes() {
-        $clause = "";
-        $params = [];
-        
-        if (isset($_POST['searchPanes']) && !empty($_POST['searchPanes'])) {
-            $searchPanes = json_decode($_POST['searchPanes'], true);
-            
-            if (is_array($searchPanes) && !empty($searchPanes)) {
-                $conditions = [];
-                
-                foreach ($searchPanes as $columnIndex => $selectedValues) {
-                    if (isset($this->filterableColumns[$columnIndex]) && !empty($selectedValues)) {
-                        $columnName = $this->filterableColumns[$columnIndex];
-                        $placeholders = [];
-                        
-                        foreach ($selectedValues as $i => $value) {
-                            $paramKey = "sp_{$columnIndex}_{$i}";
-                            $placeholders[] = ":{$paramKey}";
-                            $params[$paramKey] = $value;
-                        }
-                        
-                        if (!empty($placeholders)) {
-                            $conditions[] = "{$columnName} IN (" . implode(", ", $placeholders) . ")";
-                        }
-                    }
-                }
-                
-                if (!empty($conditions)) {
-                    $clause = " AND (" . implode(" OR ", $conditions) . ")";
-                }
-            }
-        }
-        
-        return ['clause' => $clause, 'params' => $params];
-    }
-
-    private function processGlobalSearch($searchValue) {
-        $clause = "";
-        $params = [];
-        
-        if (!empty($searchValue)) {
-            $searchConditions = [];
-            
-            foreach ($this->columns as $i => $column) {
-                $paramKey = "search_{$i}";
-                $searchConditions[] = "{$column} LIKE :{$paramKey}";
-                $params[$paramKey] = "%{$searchValue}%";
-            }
-            
-            if (!empty($searchConditions)) {
-                $clause = " AND (" . implode(" OR ", $searchConditions) . ")";
-            }
-        }
-        
-        return ['clause' => $clause, 'params' => $params];
-    }
-
-    private function getTotalRecords() {
-        try {
-            $stmt = $this->conn->prepare("SELECT COUNT(*) as count FROM ad_enquiry");
-            $stmt->execute();
-            $result = $stmt->fetch();
-            return (int)$result['count'];
-        } catch (PDOException $e) {
-            throw new Exception("Error getting total records: " . $e->getMessage());
-        }
-    }
-
-    private function getFilteredRecords($query, $params) {
-        try {
-            $countQuery = "SELECT COUNT(*) as count FROM (" . $query . ") as filtered_table";
-            $stmt = $this->conn->prepare($countQuery);
-            
-            foreach ($params as $key => $value) {
-                if ($key !== 'start' && $key !== 'length') {
-                    $stmt->bindValue(":{$key}", $value);
-                }
-            }
-            
-            $stmt->execute();
-            $result = $stmt->fetch();
-            return (int)$result['count'];
-        } catch (PDOException $e) {
-            throw new Exception("Error getting filtered records: " . $e->getMessage());
-        }
-    }
-
-    private function executeDataQuery($query, $params) {
-        try {
-            $stmt = $this->conn->prepare($query);
-            
-            foreach ($params as $key => $value) {
-                if ($key === 'start' || $key === 'length') {
-                    $stmt->bindValue(":{$key}", (int)$value, PDO::PARAM_INT);
-                } else {
-                    $stmt->bindValue(":{$key}", $value);
-                }
-            }
-            
-            $stmt->execute();
-            $data = [];
-            
-            while ($row = $stmt->fetch()) {
-                // Format data for display
-                $formattedRow = [];
-                foreach ($this->columns as $column) {
-                    $value = $row[$column] ?? '';
-                    
-                    // Special formatting for specific columns
-                    switch ($column) {
-                        case 'enquiry_date':
-                            $formattedRow[] = $value ? date('Y-m-d', strtotime($value)) : '';
-                            break;
-                        case 'mobile_no':
-                            $formattedRow[] = $value ? preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $value) : '';
-                            break;
-                        case 'email':
-                            $formattedRow[] = strtolower($value);
-                            break;
-                        case 'status':
-                            $formattedRow[] = ucfirst(strtolower($value));
-                            break;
-                        default:
-                            $formattedRow[] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-                    }
-                }
-                $data[] = $formattedRow;
-            }
-            
-            return $data;
-        } catch (PDOException $e) {
-            throw new Exception("Error executing data query: " . $e->getMessage());
-        }
-    }
-
     private function getSearchPanesData() {
-        $searchPanesData = [];
+        $searchPanes = [];
         
         foreach ($this->filterableColumns as $index => $column) {
             try {
-                $query = "SELECT DISTINCT {$column} as value, COUNT(*) as total 
-                         FROM ad_enquiry 
-                         WHERE {$column} IS NOT NULL AND TRIM({$column}) != '' 
-                         GROUP BY {$column} 
-                         ORDER BY total DESC, {$column} ASC 
-                         LIMIT 100";
-                
-                $stmt = $this->conn->prepare($query);
+                $stmt = $this->conn->prepare(
+                    "SELECT $column as value, COUNT(*) as total, COUNT(*) as count
+                     FROM ad_enquiry 
+                     WHERE $column IS NOT NULL AND TRIM($column) != '' 
+                     GROUP BY $column 
+                     ORDER BY total DESC, $column ASC
+                     LIMIT 200"
+                );
                 $stmt->execute();
                 
                 $options = [];
                 while ($row = $stmt->fetch()) {
-                    if (!empty(trim($row['value']))) {
+                    $value = trim($row['value']);
+                    if (!empty($value)) {
                         $options[] = [
-                            'label' => htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'),
-                            'value' => $row['value'],
-                            'total' => (int)$row['total']
+                            'label' => $value,
+                            'value' => $value,
+                            'total' => (int)$row['total'],
+                            'count' => (int)$row['count']
                         ];
                     }
                 }
                 
-                $searchPanesData[$index] = [
-                    'options' => $options
-                ];
+                $searchPanes[$index] = $options;
                 
-            } catch (PDOException $e) {
-                // Log error but continue with other columns
-                error_log("SearchPane error for column {$column}: " . $e->getMessage());
-                $searchPanesData[$index] = ['options' => []];
+            } catch (Exception $e) {
+                error_log("SearchPanes error for column $column: " . $e->getMessage());
+                $searchPanes[$index] = [];
             }
         }
         
-        return $searchPanesData;
-    }
-
-    private function getIntParam($key, $default = 0) {
-        $keys = explode('.', $key);
-        $value = $_POST;
-        
-        foreach ($keys as $k) {
-            if (isset($value[$k])) {
-                $value = $value[$k];
-            } else {
-                return $default;
-            }
-        }
-        
-        return is_numeric($value) ? (int)$value : $default;
-    }
-
-    private function getStringParam($key, $default = '') {
-        $keys = explode('.', $key);
-        $value = $_POST;
-        
-        foreach ($keys as $k) {
-            if (isset($value[$k])) {
-                $value = $value[$k];
-            } else {
-                return $default;
-            }
-        }
-        
-        return is_string($value) ? trim($value) : $default;
-    }
-
-    private function sendSuccessResponse($data) {
-        echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        exit;
+        return $searchPanes;
     }
 
     private function sendErrorResponse($message) {
-        $response = [
+        http_response_code(500);
+        echo json_encode([
             'error' => $message,
-            'draw' => $this->getIntParam('draw', 1),
+            'draw' => $this->input['draw'] ?? 1,
             'recordsTotal' => 0,
             'recordsFiltered' => 0,
             'data' => [],
-            'searchPanes' => []
-        ];
-        
-        http_response_code(500);
-        echo json_encode($response, JSON_PRETTY_PRINT);
+            'searchPanes' => [
+                'options' => []
+            ]
+        ], JSON_UNESCAPED_UNICODE);
         exit;
-    }
-
-    public function __destruct() {
-        $this->conn = null;
     }
 }
 
-// Handle the request
+// Initialize and process request
 try {
     $handler = new EnquiryDataHandler();
     $handler->processRequest();
 } catch (Exception $e) {
-    header('Content-Type: application/json');
+    error_log("Fatal error: " . $e->getMessage());
     http_response_code(500);
     echo json_encode([
-        'error' => 'System error: ' . $e->getMessage(),
-        'draw' => isset($_POST['draw']) ? (int)$_POST['draw'] : 1,
+        'error' => 'System error occurred',
+        'draw' => 1,
         'recordsTotal' => 0,
         'recordsFiltered' => 0,
-        'data' => []
+        'data' => [],
+        'searchPanes' => [
+            'options' => []
+        ]
     ]);
 }
 ?>

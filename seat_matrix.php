@@ -16,7 +16,7 @@
     <!-- Bootstrap & Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Chart.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
 
@@ -125,35 +125,24 @@
 
         .stat-card {
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 2rem;
             border-radius: 20px;
             background: var(--dark-brown);
             color: var(--off-white);
-            margin-bottom: 1.5rem;
+            margin: 1rem;
             font-weight: 600;
             box-shadow: var(--card-shadow);
-            height: 100%;
+            height: 250px;
+            /* Ensures equal height for all cards */
+            width: 100%;
+            /* Makes cards responsive */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(236, 195, 92, 0.2);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotateZ(45deg);
-            transition: all 0.6s;
-            opacity: 0;
-        }
-
-        .stat-card:hover::before {
-            animation: shine 0.6s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .stat-card h3 {
@@ -161,14 +150,16 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 2.5rem;
+            font-size: 2rem;
+            /* Adjusted for better visual balance */
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
         .stat-card p {
             color: var(--off-white);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            /* Slightly larger for readability */
             margin: 0;
             opacity: 0.9;
             text-transform: uppercase;
@@ -179,12 +170,15 @@
             position: relative;
             height: 400px;
             width: 100%;
-            padding: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
         }
 
         .chart-container canvas {
             max-height: 100% !important;
             border-radius: 15px;
+            background: white;
         }
 
         h5 {
@@ -429,6 +423,42 @@
                 height: 300px;
             }
         }
+
+        .stat-card {
+            background-color: rgba(91, 31, 31, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #f7f3b7;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ecc35c;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .stat-card i {
+            margin-right: 5px;
+            color: #ecc35c;
+        }
+
+        .dashboard-card {
+            background-color: rgba(91, 31, 31, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
@@ -474,29 +504,35 @@
             </div>
 
             <!-- Summary Statistics -->
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row mb-4">
+                <div class="col">
                     <div class="stat-card">
                         <h3 id="totalIntake">0</h3>
                         <p><i class="fas fa-users"></i> Total Intake</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col">
                     <div class="stat-card">
                         <h3 id="totalAdmitted">0</h3>
                         <p><i class="fas fa-user-graduate"></i> Students Admitted</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col">
+                    <div class="stat-card">
+                        <h3 id="totalPayable">₹0</h3>
+                        <p><i class="fas fa-money-check-alt"></i> Expected Revenue</p>
+                    </div>
+                </div>
+                <div class="col">
                     <div class="stat-card">
                         <h3 id="totalRevenue">₹0</h3>
                         <p><i class="fas fa-rupee-sign"></i> Actual Revenue</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col">
                     <div class="stat-card">
-                        <h3 id="totalColleges">0</h3>
-                        <p><i class="fas fa-building"></i> Active Colleges</p>
+                        <h3 id="totalBalance">₹0</h3>
+                        <p><i class="fas fa-wallet"></i> Total Balance</p>
                     </div>
                 </div>
             </div>
@@ -513,9 +549,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="dashboard-card">
-                        <h5><i class="fas fa-chart-radar"></i> Programme Performance Analysis</h5>
+                        <h5><i class="fas fa-chart-pie"></i> Quota Distribution</h5>
                         <div class="chart-container">
-                            <canvas id="programmeRadarChart"></canvas>
+                            <canvas id="quotaPolarChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -533,9 +569,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="dashboard-card">
-                        <h5><i class="fas fa-chart-pie"></i> Quota Distribution</h5>
+                        <h5><i class="fas fa-chart-radar"></i> Programme Performance Analysis</h5>
                         <div class="chart-container">
-                            <canvas id="quotaPolarChart"></canvas>
+                            <canvas id="programmeRadarChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -576,15 +612,16 @@
                                         <th>Course</th>
                                         <th>Discipline</th>
                                         <th>Quota</th>
-                                        <th>Intake</th>
+                                        <th>Total Seats</th>
                                         <th>Admitted</th>
-                                        <th>Fee</th>
+                                        <th>Total Fees</th>
                                         <th>Expected Revenue</th>
                                         <th>Actual Revenue</th>
-                                        <th>Fill Rate %</th>
-                                        <th>Regular Status</th>
+                                        <th>Total Payable</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -604,7 +641,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- DataTables and Extensions -->
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
@@ -616,7 +653,7 @@
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-    
+
     <!-- Chart.js and plugins -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
@@ -626,8 +663,8 @@
         if (window.chartData) {
             delete window.chartData;
         }
-        
-    $(document).ready(function () {
+
+        $(document).ready(function () {
             // Show loading overlay initially
             $('#loadingOverlay').show();
 
@@ -644,177 +681,195 @@
 
                 return window.fullData.filter(row => {
                     return (!yearFilter || row[0] === yearFilter) &&
-                           (!collegeFilter || row[1] === collegeFilter) &&
-                           (!programmeFilter || row[2] === programmeFilter);
+                        (!collegeFilter || row[1] === collegeFilter) &&
+                        (!programmeFilter || row[2] === programmeFilter);
                 });
             }
 
             // DataTable initialization
             var table = $('#admissionTable').DataTable({
-                    dom: '<"row"<"col-sm-12 col-md-6"B><"col-sm-12 col-md-6"f>>rtip',
-                    processing: true,
-                    serverSide: false,
+                dom: 'Bfrtip',
+                processing: true,
+                serverSide: false,
                 ajax: {
                     url: 'fetch_table.php',
                     type: 'POST',
-                        dataSrc: function (json) {
-                            if (json.error) {
-                                console.error('Data fetch error:', json.message);
-                                $('#errorMessage').html('Error loading data: ' + json.message).show();
-                                $('#loadingOverlay').hide();
-                                return [];
-                            }
-                            if (!json.data || !Array.isArray(json.data)) {
-                                console.error('Invalid data format:', json);
-                                $('#errorMessage').html('Invalid data format received').show();
-                                return [];
-                            }
-                            console.log('Data loaded successfully:', json.data.length + ' records');
-                            window.fullData = json.data; // Store just the data array
-                            return json.data;
+                    dataSrc: function(json) {
+                        console.log('Server Response:', json);
+                        
+                        // Hide loading overlay
+                        $('#loadingOverlay').hide();
+                        
+                        // Check for errors
+                        if (json.error) {
+                            console.error('Data fetch error:', json.message);
+                            $('#errorMessage').html('Error loading data: ' + json.message).show();
+                            return [];
+                        }
+                        
+                        // Validate data structure
+                        if (!json.data || !Array.isArray(json.data)) {
+                            console.error('Invalid data format:', json);
+                            $('#errorMessage').html('Invalid data format received').show();
+                            return [];
+                        }
+                        
+                        // Log data details
+                        console.log('Data received:', {
+                            totalRecords: json.recordsTotal,
+                            filteredRecords: json.recordsFiltered,
+                            dataLength: json.data.length,
+                            firstRecord: json.data[0] || null
+                        });
+                        
+                        // Store data for filtering
+                        window.fullData = json.data;
+                        
+                        // Hide error message if everything is OK
+                        $('#errorMessage').hide();
+                        
+                        // Update summary statistics
+                        updateSummary(json.data);
+                        
+                        // Update charts
+                        if (typeof chartManager !== 'undefined') {
+                            chartManager.updateAllCharts(json.data);
+                        }
+                        
+                        return json.data;
+                    },
+                    error: function(xhr, error, thrown) {
+                        $('#loadingOverlay').hide();
+                        console.error('AJAX Error:', {
+                            error: error,
+                            thrown: thrown,
+                            status: xhr.status,
+                            response: xhr.responseText
+                        });
+                        $('#errorMessage').html('Failed to load data: ' + error).show();
                     }
                 },
                 columns: [
-                        { 
-                            data: '0',
-                            title: 'Academic Year'
-                        },
-                        { 
-                            data: '1',
-                            title: 'College'
-                        },
-                        { 
-                            data: '2',
-                            title: 'Programme'
-                        },
-                        { data: '3', title: 'Course' },
-                        { data: '4', title: 'Discipline' },
-                        { 
-                            data: '5',
-                            title: 'Quota'
-                        },
-                        { 
-                            data: '6',
-                            title: 'Intake',
-                            render: function(data) {
-                                return parseInt(data).toLocaleString();
-                            }
-                        },
-                        { 
-                            data: '7',
-                            title: 'Admitted',
-                            render: function(data) {
-                                return parseInt(data).toLocaleString();
-                            }
-                        },
-                        { 
-                            data: '8',
-                            title: 'Fee',
-                            render: function(data) {
-                                return '₹' + parseInt(data).toLocaleString();
-                            }
-                        },
-                        { 
-                            data: '9',
-                            title: 'Expected Revenue',
-                            render: function(data) {
-                                return '₹' + parseInt(data).toLocaleString();
-                            }
-                        },
-                        { 
-                            data: '10',
-                            title: 'Actual Revenue',
-                            render: function(data) {
-                                return '₹' + parseInt(data).toLocaleString();
-                            }
-                        },
-                        { 
-                            data: '11',
-                            title: 'Fill Rate %',
-                            render: function(data) {
-                                const rate = parseFloat(data);
-                                const color = rate >= 90 ? 'success' :
-                                            rate >= 70 ? 'warning' :
-                                            'danger';
-                                return `<span class="badge badge-${color}">${rate.toFixed(1)}%</span>`;
-                            }
-                        },
-                        { data: '12', visible: false }
-                    ],
-                    buttons: [
-                        {
-                            extend: 'collection',
-                            text: '<i class="fas fa-download"></i> Export',
-                            className: 'btn-custom',
-                            buttons: [
-                                {
-                                    extend: 'excel',
-                                    text: '<i class="fas fa-file-excel"></i> Excel',
-                                    className: 'btn-sm',
-                                    exportOptions: {
-                                        columns: ':visible'
-                                    }
-                                },
-                                {
-                                    extend: 'csv',
-                                    text: '<i class="fas fa-file-csv"></i> CSV',
-                                    className: 'btn-sm',
-                                    exportOptions: {
-                                        columns: ':visible'
-                                    }
-                                },
-                                {
-                                    extend: 'print',
-                                    text: '<i class="fas fa-print"></i> Print',
-                                    className: 'btn-sm',
-                                    exportOptions: {
-                                        columns: ':visible'
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            extend: 'colvis',
-                            text: '<i class="fas fa-columns"></i> Columns',
-                            className: 'btn-custom'
+                    { data: 0, name: 'ACADEMIC_YEAR' },
+                    { data: 1, name: 'COLLEGE' },
+                    { data: 2, name: 'PROGRAMME' },
+                    { data: 3, name: 'COURSE' },
+                    { data: 4, name: 'DISCIPLINE' },
+                    { data: 5, name: 'QUOTA' },
+                    { 
+                        data: 6,
+                        name: 'total_seats',
+                        render: function(data) {
+                            return parseInt(data).toLocaleString('en-IN');
                         }
-                    ],
-                    language: {
-                        processing: '<div class="spinner"></div>',
-                        emptyTable: 'No data available',
-                        zeroRecords: 'No matching records found'
                     },
-                    pageLength: 10,
-                    order: [[0, 'desc'], [1, 'asc'], [7, 'asc']],
-                responsive: true,
-                    select: true,
-                initComplete: function(settings, json) {
-                        if (!json.error) {
-                            if (json.data && json.data.length > 0) {
-                                console.log('Table initialized with data');
-                populateFilters(json.data);
-                                updateChartsAndStats();
-                            } else {
-                                console.warn('No data available for initialization');
-                                $('#errorMessage').html('No data available').show();
-                            }
-                        } else {
-                            console.error('Error during table initialization:', json.error);
-                            $('#errorMessage').html('Error initializing table: ' + json.error).show();
+                    { 
+                        data: 7,
+                        name: 'admitted_count',
+                        render: function(data) {
+                            return parseInt(data).toLocaleString('en-IN');
                         }
-                        $('#loadingOverlay').hide();
+                    },
+                    { 
+                        data: 8,
+                        name: 'total_fees',
+                        render: function(data) {
+                            return '₹' + parseInt(data).toLocaleString();
+                        }
+                    },
+                    { 
+                        data: 9,
+                        name: 'expected_revenue',
+                        render: function(data) {
+                            return '₹' + parseInt(data).toLocaleString();
+                        }
+                    },
+                    { 
+                        data: 10,
+                        name: 'fee_paid',
+                        render: function(data) {
+                            return '₹' + parseInt(data).toLocaleString();
+                        }
+                    },
+                    { 
+                        data: 11,
+                        name: 'fee_payable',
+                        render: function(data) {
+                            return '₹' + parseInt(data).toLocaleString();
+                        }
+                    },
+                ],
+                buttons: [
+                    {
+                        extend: 'collection',
+                        text: '<i class="fas fa-download"></i> Export',
+                        className: 'btn-custom',
+                        buttons: [
+                            {
+                                extend: 'excel',
+                                text: '<i class="fas fa-file-excel"></i> Excel',
+                                className: 'btn-sm',
+                                exportOptions: { columns: ':visible' }
+                            },
+                            {
+                                extend: 'csv',
+                                text: '<i class="fas fa-file-csv"></i> CSV',
+                                className: 'btn-sm',
+                                exportOptions: { columns: ':visible' }
+                            },
+                            {
+                                extend: 'print',
+                                text: '<i class="fas fa-print"></i> Print',
+                                className: 'btn-sm',
+                                exportOptions: { columns: ':visible' }
+                            }
+                        ]
+                    },
+                    {
+                        extend: 'colvis',
+                        text: '<i class="fas fa-columns"></i> Columns',
+                        className: 'btn-custom'
                     }
-                });
+                ],
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                order: [[0, 'desc'], [1, 'asc']],
+                responsive: true,
+                language: {
+                    processing: '<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>',
+                    emptyTable: 'No data available',
+                    zeroRecords: 'No matching records found',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'Showing 0 to 0 of 0 entries',
+                    infoFiltered: '(filtered from _MAX_ total entries)'
+                },
+                initComplete: function(settings, json) {
+                    if (!json || json.error) {
+                        console.error('Error initializing table:', json);
+                        $('#errorMessage').html('Error initializing table: ' + (json ? json.message : 'Unknown error')).show();
+                    } else {
+                        console.log('Table initialized successfully');
+                        if (json.data && json.data.length > 0) {
+                            populateFilters(json.data);
+                            updateChartsAndStats();
+                        } else {
+                            $('#errorMessage').html('No data available').show();
+                        }
+                    }
+                    $('#loadingOverlay').hide();
+                }
+            });
 
-                // Initialize SearchPanes
-                new $.fn.dataTable.SearchPanes(table, {
-                    layout: 'columns-3',
-                    controls: false,
-                    clear: true
-                });
-                
-                table.searchPanes.container().prependTo(table.table().container());
-                table.searchPanes.resizePanes();
+            // Initialize SearchPanes
+            new $.fn.dataTable.SearchPanes(table, {
+                layout: 'columns-3',
+                initCollapsed: true,
+                controls: false,
+                clear: true
+            });
+
+            table.searchPanes.container().prependTo(table.table().container());
+            table.searchPanes.resizePanes();
 
             // Filter controls
             function populateFilters(data) {
@@ -852,7 +907,7 @@
             }
 
             // Update visualizations when filters change
-            $('#yearFilter, #collegeFilter, #programmeFilter').on('change', function() {
+            $('#yearFilter, #collegeFilter, #programmeFilter').on('change', function () {
                 $('#loadingOverlay').fadeIn(300);
                 setTimeout(() => {
                     try {
@@ -890,28 +945,88 @@
                     return;
                 }
 
-                // Calculate total intake from the full dataset (unfiltered)
-                const totalIntake = window.fullData.reduce((sum, row) => sum + (parseInt(row[6]) || 0), 0);
+                // Add data validation and debug logging
+                console.log('Processing data for statistics:', filteredData.slice(0, 3));
 
-                // Calculate other statistics from filtered data
-                const totalAdmitted = filteredData.reduce((sum, row) => sum + (parseInt(row[7]) || 0), 0);
-                const totalRevenue = filteredData.reduce((sum, row) => sum + (parseInt(row[10]) || 0), 0);
-                const colleges = new Set(filteredData.map(row => row[1]));
+                // Calculate statistics with validation
+                const totalIntake = filteredData.reduce((sum, row) => {
+                    if (!row || !Array.isArray(row)) {
+                        console.warn('Invalid row data:', row);
+                        return sum;
+                    }
+                    const seats = parseInt(row[6]);
+                    if (isNaN(seats)) {
+                        console.warn('Invalid total seats value:', row[6], 'in row:', row);
+                        return sum;
+                    }
+                    return sum + Math.max(0, seats); // Ensure non-negative
+                }, 0);
+
+                const totalAdmitted = filteredData.reduce((sum, row) => {
+                    if (!row || !Array.isArray(row)) return sum;
+                    const admitted = parseInt(row[7]);
+                    if (isNaN(admitted)) return sum;
+                    return sum + Math.max(0, admitted);
+                }, 0);
+
+                const totalRevenue = filteredData.reduce((sum, row) => {
+                    if (!row || !Array.isArray(row)) return sum;
+                    const totalPaid = parseInt(row[10]); // Using TOTAL_PAID column
+                    if (isNaN(totalPaid)) {
+                        console.warn('Invalid total paid value:', row[10], 'in row:', row);
+                        return sum;
+                    }
+                    return sum + Math.max(0, totalPaid);
+                }, 0);
+
+                const totalPayable = filteredData.reduce((sum, row) => {
+                    if (!row || !Array.isArray(row)) return sum;
+                    const totalPayable = parseInt(row[9]); // Using TOTAL_PAYABLE column
+                    if (isNaN(totalPayable)) {
+                        console.warn('Invalid total payable value:', row[9], 'in row:', row);
+                        return sum;
+                    }
+                    return sum + Math.max(0, totalPayable);
+                }, 0);
+                
+                // Calculate total balance (expected revenue - actual revenue, showing positive values only)
+                const totalBalance = filteredData.reduce((sum, row) => {
+                    const expectedRevenue = parseInt(row[9]); // TOTAL_PAYABLE
+                    const actualRevenue = parseInt(row[10]); // TOTAL_PAID
+                    if (isNaN(expectedRevenue) || isNaN(actualRevenue)) {
+                        console.warn('Invalid revenue values:', { expected: row[9], actual: row[10], row });
+                        return sum;
+                    }
+                    const balance = Math.max(0, expectedRevenue - actualRevenue); // Only consider positive balances
+                    return sum + balance;
+                }, 0);
 
                 // Log the values for debugging
                 console.log('Statistics Update:', {
                     totalIntake,
                     totalAdmitted,
                     totalRevenue,
-                    collegeCount: colleges.size,
+                    totalPayable,
+                    totalBalance,
                     filteredDataLength: filteredData.length
                 });
 
-                // Update the display with animations
-                animateNumber('#totalIntake', totalIntake);
-                animateNumber('#totalAdmitted', totalAdmitted);
-                animateNumber('#totalRevenue', totalRevenue, true);
-                animateNumber('#totalColleges', colleges.size);
+                // Log final calculated values for verification
+                console.log('Final calculated values:', {
+                    totalIntake,
+                    totalAdmitted,
+                    totalRevenue,
+                    totalPayable,
+                    totalBalance,
+                    'intake/admitted ratio': totalIntake > 0 ? (totalAdmitted / totalIntake * 100).toFixed(1) + '%' : 'N/A'
+                });
+
+                // Update the display with animations and validation
+                if (totalIntake >= 0) animateNumber('#totalIntake', totalIntake);
+                if (totalAdmitted >= 0) animateNumber('#totalAdmitted', totalAdmitted);
+                if (totalRevenue >= 0) animateNumber('#totalRevenue', totalRevenue, true);
+                if (totalPayable >= 0) animateNumber('#totalPayable', totalPayable, true);
+                if (totalBalance >= 0) animateNumber('#totalBalance', totalBalance, true);
             }
 
             function animateNumber(elementId, finalValue, isCurrency = false) {
@@ -920,16 +1035,37 @@
                 const duration = 1000;
                 const steps = 50;
                 const increment = (finalValue - startValue) / steps;
-                let currentStep = 0;
+                let currentStep = 0;                    // Function to format numbers in Indian style with proper grouping
+                const formatIndianCurrency = (number) => {
+                    const numStr = Math.abs(number).toString();
+                    if (numStr.length <= 3) return '₹' + numStr;
+                    
+                    let lastThree = numStr.substring(numStr.length - 3);
+                    let otherNumbers = numStr.substring(0, numStr.length - 3);
+                    if (otherNumbers !== '') {
+                        lastThree = ',' + lastThree;
+                    }
+                    let formattedNumber = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                    return '₹' + formattedNumber;
+                };
 
                 const timer = setInterval(() => {
                     currentStep++;
                     const currentValue = Math.floor(startValue + (increment * currentStep));
-                    $element.text(isCurrency ? '₹' + currentValue.toLocaleString() : currentValue.toLocaleString());
+                    
+                    if (isCurrency) {
+                        $element.text(formatIndianCurrency(currentValue));
+                    } else {
+                        $element.text(currentValue.toLocaleString('en-IN'));
+                    }
 
                     if (currentStep >= steps) {
                         clearInterval(timer);
-                        $element.text(isCurrency ? '₹' + finalValue.toLocaleString() : finalValue.toLocaleString());
+                        if (isCurrency) {
+                            $element.text(formatIndianCurrency(finalValue));
+                        } else {
+                            $element.text(finalValue.toLocaleString('en-IN'));
+                        }
                     }
                 }, duration / steps);
             }
@@ -990,7 +1126,7 @@
                         warning: ['rgba(255, 159, 64, 0.8)', 'rgba(255, 159, 64, 1)'],   // Orange
                         danger: ['rgba(220, 53, 69, 0.8)', 'rgba(220, 53, 69, 1)'],      // Red
                         info: ['rgba(23, 162, 184, 0.8)', 'rgba(23, 162, 184, 1)'],      // Cyan
-                        
+
                         // Professional color palette
                         palette: [
                             'rgba(54, 162, 235, 0.8)',  // Blue
@@ -1007,6 +1143,7 @@
                     this.baseOptions = {
                         responsive: true,
                         maintainAspectRatio: false,
+                        backgroundColor: 'white',
                         plugins: {
                             legend: {
                                 position: 'top',
@@ -1016,7 +1153,8 @@
                                         family: "'Segoe UI', Arial, sans-serif",
                                         size: 12,
                                         weight: 500
-                                    }
+                                    },
+                                    color: '#333'
                                 }
                             },
                             title: {
@@ -1209,8 +1347,8 @@
                         const year = row[0];
                         if (!yearlyRevenue[year]) {
                             yearlyRevenue[year] = {
-                                expected: parseInt(row[9]) || 0,
-                                actual: parseInt(row[10]) || 0
+                                expected: parseInt(row[9]) || 0,  // Using TOTAL_PAYABLE as expected revenue
+                                actual: parseInt(row[10]) || 0    // Using TOTAL_PAID as actual revenue
                             };
                         } else {
                             yearlyRevenue[year].expected += parseInt(row[9]) || 0;
@@ -1233,7 +1371,14 @@
                                     backgroundColor: this.colors.warning[0],
                                     borderColor: this.colors.warning[1],
                                     borderWidth: 1,
-                                    type: 'bar'
+                                    type: 'bar',
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                return 'Expected Revenue: ₹' + context.parsed.y.toLocaleString();
+                                            }
+                                        }
+                                    }
                                 },
                                 {
                                     label: 'Actual Revenue',
@@ -1241,7 +1386,14 @@
                                     backgroundColor: this.colors.success[0],
                                     borderColor: this.colors.success[1],
                                     borderWidth: 1,
-                                    type: 'bar'
+                                    type: 'bar',
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                return 'Actual Revenue: ₹' + context.parsed.y.toLocaleString();
+                                            }
+                                        }
+                                    }
                                 }
                             ]
                         },
@@ -1251,7 +1403,7 @@
                                 ...this.baseOptions.plugins,
                                 title: {
                                     ...this.baseOptions.plugins.title,
-                                    text: 'Revenue Analysis by Year'
+                                    text: 'Fee Collection Analysis by Year'
                                 }
                             },
                             scales: {
@@ -1269,9 +1421,13 @@
                                     ticks: {
                                         callback: (value) => {
                                             if (value >= 10000000) {
-                                                return '₹' + (value / 10000000).toFixed(1) + 'Cr';
+                                                return '₹' + (value / 10000000).toFixed(2) + ' Cr';
+                                            } else if (value >= 100000) {
+                                                return '₹' + (value / 100000).toFixed(2) + ' L';
+                                            } else if (value >= 1000) {
+                                                return '₹' + (value / 1000).toFixed(2) + ' K';
                                             }
-                                            return '₹' + (value / 100000).toFixed(1) + 'L';
+                                            return '₹' + value.toLocaleString('en-IN');
                                         }
                                     }
                                 }
@@ -1334,7 +1490,7 @@
                     });
                 }
 
-                // 5. Fill Rate Bar Chart
+                // 5. Fill Rate Gauge Chart
                 updateFillRateBarChart(data) {
                     const ctx = document.getElementById('fillRateChart');
                     if (!ctx) return;
@@ -1346,42 +1502,53 @@
                     const courseData = {};
                     data.forEach(row => {
                         const course = row[3];
-                        const fillRate = parseFloat(row[11]) || 0;
-                        if (!courseData[course] || courseData[course].rate < fillRate) {
+                        const admitted = parseInt(row[7]) || 0;
+                        const intake = parseInt(row[6]) || 0;
+                        const fillRate = intake > 0 ? (admitted / intake * 100) : 0;
+                        
+                        if (!courseData[course] || courseData[course].fillRate < fillRate) {
                             courseData[course] = {
-                                rate: fillRate,
-                                admitted: parseInt(row[7]) || 0,
-                                intake: parseInt(row[6]) || 0
+                                fillRate,
+                                admitted,
+                                intake
                             };
                         }
                     });
 
+                    // Get top 8 courses by fill rate for better visualization
                     const sortedCourses = Object.entries(courseData)
-                        .sort((a, b) => b[1].rate - a[1].rate)
-                        .slice(0, 10);
+                        .sort((a, b) => b[1].fillRate - a[1].fillRate)
+                        .slice(0, 8);
 
                     const labels = sortedCourses.map(([course]) => course);
-                    const fillRates = sortedCourses.map(([, data]) => data.rate);
+                    const fillRates = sortedCourses.map(([, data]) => data.fillRate);
+                    const admitted = sortedCourses.map(([, data]) => data.admitted);
+                    const intake = sortedCourses.map(([, data]) => data.intake);
 
                     this.charts.fillRateBar = new Chart(ctx, {
                         type: 'bar',
                         data: {
                             labels: labels,
-                            datasets: [{
-                                label: 'Fill Rate',
-                                data: fillRates,
-                                backgroundColor: fillRates.map(rate => 
-                                    rate >= 90 ? this.colors.success[0] :
-                                    rate >= 70 ? this.colors.warning[0] :
-                                    this.colors.danger[0]
-                                ),
-                                borderColor: fillRates.map(rate => 
-                                    rate >= 90 ? this.colors.success[1] :
-                                    rate >= 70 ? this.colors.warning[1] :
-                                    this.colors.danger[1]
-                                ),
-                                borderWidth: 1
-                            }]
+                            datasets: [
+                                {
+                                    label: 'Fill Rate',
+                                    data: fillRates,
+                                    backgroundColor: fillRates.map(rate => {
+                                        const alpha = Math.min(rate / 100, 1); // Opacity based on fill rate
+                                        return rate >= 90 ? `rgba(40, 167, 69, ${alpha})` :
+                                               rate >= 70 ? `rgba(255, 159, 64, ${alpha})` :
+                                               `rgba(220, 53, 69, ${alpha})`;
+                                    }),
+                                    borderColor: fillRates.map(rate =>
+                                        rate >= 90 ? this.colors.success[1] :
+                                        rate >= 70 ? this.colors.warning[1] :
+                                        this.colors.danger[1]
+                                    ),
+                                    borderWidth: 2,
+                                    barPercentage: 0.8,
+                                    categoryPercentage: 0.9
+                                }
+                            ]
                         },
                         options: {
                             ...this.baseOptions,
@@ -1390,26 +1557,62 @@
                                 ...this.baseOptions.plugins,
                                 title: {
                                     ...this.baseOptions.plugins.title,
-                                    text: 'Top 10 Courses by Fill Rate'
+                                    text: 'Course Fill Rate Analysis',
+                                    color: '#333'
                                 },
                                 datalabels: {
                                     align: 'end',
                                     anchor: 'end',
-                                    formatter: value => value.toFixed(1) + '%'
+                                    offset: 4,
+                                    color: '#333',
+                                    font: {
+                                        weight: 'bold',
+                                        size: 11
+                                    },
+                                    formatter: (value, ctx) => {
+                                        const index = ctx.dataIndex;
+                                        return `${value.toFixed(1)}% (${admitted[index]}/${intake[index]})`;
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: (context) => {
+                                            const index = context.dataIndex;
+                                            return [
+                                                `Fill Rate: ${context.parsed.x.toFixed(1)}%`,
+                                                `Admitted: ${admitted[index]}`,
+                                                `Total Seats: ${intake[index]}`
+                                            ];
+                                        }
+                                    }
                                 }
                             },
                             scales: {
                                 x: {
                                     beginAtZero: true,
                                     max: 100,
+                                    grid: {
+                                        color: '#e0e0e0'
+                                    },
+                                    ticks: {
+                                        color: '#333',
+                                        callback: value => value + '%'
+                                    },
                                     title: {
                                         display: true,
-                                        text: 'Fill Rate (%)'
+                                        text: 'Fill Rate',
+                                        color: '#333'
                                     }
                                 },
                                 y: {
                                     grid: {
                                         display: false
+                                    },
+                                    ticks: {
+                                        color: '#333',
+                                        font: {
+                                            weight: '500'
+                                        }
                                     }
                                 }
                             }
@@ -1510,7 +1713,7 @@
                     console.log('Updating charts and stats...');
                     const filteredData = getFilteredData();
                     console.log('Filtered data length:', filteredData.length);
-                    
+
                     if (!filteredData || filteredData.length === 0) {
                         console.warn('No data available for charts');
                         $('#errorMessage').html('No data available for visualization').show();
@@ -1538,7 +1741,7 @@
             }
 
             // Add window error handler for Chart.js
-            window.addEventListener('error', function(e) {
+            window.addEventListener('error', function (e) {
                 if (e.error && e.error.toString().includes('Chart')) {
                     console.error('Chart.js error:', e.error);
                     $('#errorMessage').html('Chart error: ' + e.error.message).show();
@@ -1549,7 +1752,102 @@
             if (typeof module !== 'undefined' && module.exports) {
                 module.exports = { ChartManager, updateChartsAndStats, cleanupCharts };
             }
-    });
+        });
+
+        // Debug information
+        $(document).ready(function() {
+            // Test database connection
+            $.ajax({
+                url: 'check_connection.php',
+                type: 'GET',
+                success: function(response) {
+                    console.log('Database connection test:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Database connection test failed:', error);
+                }
+            });
+
+            // Log DataTables version
+            console.log('DataTables version:', $.fn.dataTable.version);
+            
+            // Monitor AJAX requests
+            $(document).ajaxSend(function(event, xhr, settings) {
+                console.log('AJAX request sent:', settings.url);
+            });
+            
+            $(document).ajaxComplete(function(event, xhr, settings) {
+                console.log('AJAX request completed:', settings.url, xhr.status);
+                console.log('Response:', xhr.responseText);
+            });
+            
+            $(document).ajaxError(function(event, xhr, settings, error) {
+                console.error('AJAX error:', settings.url, error);
+                console.error('Response:', xhr.responseText);
+            });
+        });
+
+        // Add this debugging section before closing body tag
+        $(document).ready(function() {
+            // Log DataTables version
+            console.log('DataTables version:', $.fn.dataTable.version);
+            
+            // Test data fetching
+            $.ajax({
+                url: 'fetch_table.php',
+                type: 'POST',
+                success: function(response) {
+                    console.log('Direct fetch test response:', response);
+                    if (response.error) {
+                        console.error('Fetch error:', response.message);
+                    } else if (!response.data || !Array.isArray(response.data)) {
+                        console.error('Invalid data format:', response);
+                    } else {
+                        console.log('Data fetch successful, records:', response.data.length);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Fetch test failed:', error);
+                    console.error('Status:', status);
+                    console.error('Response:', xhr.responseText);
+                }
+            });
+            
+            // Monitor all AJAX requests
+            $(document).ajaxSend(function(event, xhr, settings) {
+                console.log('AJAX request sent:', settings.url);
+            });
+            
+            $(document).ajaxComplete(function(event, xhr, settings) {
+                console.log('AJAX request completed:', settings.url);
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    console.log('Response data structure:', {
+                        hasError: 'error' in response,
+                        hasData: 'data' in response,
+                        dataLength: response.data ? response.data.length : 0,
+                        firstRecord: response.data && response.data.length > 0 ? response.data[0] : null
+                    });
+                } catch (e) {
+                    console.error('Failed to parse response:', xhr.responseText);
+                }
+            });
+            
+            $(document).ajaxError(function(event, xhr, settings, error) {
+                console.error('AJAX error:', settings.url, error);
+                console.error('Response:', xhr.responseText);
+            });
+        });
+
+        $(document).ready(function () {
+            $('#example').DataTable({
+                dom: 'Pfrtip', // Enables Search Panes
+                searchPanes: {
+                    cascadePanes: true,
+                    viewTotal: true
+                }
+            });
+        });
     </script>
 </body>
 

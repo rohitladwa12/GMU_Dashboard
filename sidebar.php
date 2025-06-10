@@ -73,7 +73,7 @@
     }
 
     .sidebar nav ul li {
-        margin-bottom: 15px; /* Increased gap between menu items */
+        margin-bottom: 20px; /* Increased gap between menu items */
     }
 
     .sidebar .dropbtn {
@@ -90,10 +90,10 @@
     }
 
     .sidebar .dropbtn i {
-        margin-right: 10px;
-        width: 24px; /* Slightly wider icons */
+        margin-right: 15px; /* Adjusted spacing for icons */
+        width: 30px; /* Slightly wider icons */
         text-align: center;
-        font-size: 1.2em; /* Bigger icons */
+        font-size: 1.5em; /* Bigger icons */
         transition: all 0.3s ease;
     }
 
@@ -134,6 +134,7 @@
         border-radius: 5px;
         overflow: hidden;
         padding: 5px;  /* Add padding around all content */
+        margin-bottom: 25px; /* Increased gap after each dropdown content */
     }
 
     .dropdown-content a {
@@ -182,11 +183,6 @@
 </style>
 
 <div class="sidebar" id="sidebar">
-    <div class="profile">
-        <img src="Icons/admin.png" alt="Profile Picture">
-        <h3>Admin</h3>
-        <p>Administrator</p>
-    </div>
     <nav>
         <ul>
             <li class="dropdown">
@@ -197,8 +193,6 @@
                 </a>
                 <div class="dropdown-content">
                     <a href="index.php">Dashboard 1</a>
-                    <a href="#">Dashboard 2</a>
-                    <a href="#">Dashboard 3</a>
                 </div>
             </li>
             <li class="dropdown">
