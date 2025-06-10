@@ -1,0 +1,2759 @@
+[09-Jun-2025 07:57:16 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 07:57:16 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 07:57:16 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 07:57:16 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 07:57:16 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 07:57:48 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 07:57:48 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 07:57:48 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 07:57:48 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 07:57:48 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 07:57:48 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 07:57:48 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 07:57:48 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 07:57:48 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 07:57:48 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 07:59:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 07:59:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 07:59:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 07:59:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 07:59:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 07:59:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 07:59:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 07:59:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 07:59:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 07:59:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:30:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:30:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:30:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:30:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:30:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:30:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:30:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:30:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:30:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:30:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:32:43 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:32:43 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:32:43 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:32:43 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:32:43 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:32:43 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:32:43 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:32:43 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:32:43 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:32:43 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:33:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:33:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:33:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:33:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:33:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:33:26 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:33:26 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:33:26 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:33:26 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:33:26 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:33:34 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:33:34 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:33:34 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:33:34 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:33:34 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:33:34 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:33:34 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:33:34 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:33:34 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:33:34 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:34:03 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:34:03 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:34:03 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:34:03 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:34:03 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:34:03 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:34:03 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:34:03 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:34:03 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:34:03 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:34:17 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:34:17 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:34:17 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:34:17 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:34:17 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:34:17 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:34:17 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:34:17 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:34:17 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:34:17 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:37:21 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:37:21 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:37:21 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:37:21 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:37:21 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:37:21 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:37:21 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:37:21 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:37:21 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:37:21 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:46:04 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:46:04 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:46:04 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:46:04 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:46:04 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:46:04 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:46:04 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:46:04 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:46:04 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:46:04 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:49:32 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:49:32 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:49:32 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:49:32 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 08:49:32 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 08:49:32 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 08:49:32 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:49:32 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 08:49:32 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 08:49:32 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:05:39 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:05:39 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:05:39 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:05:39 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:05:39 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:05:39 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:05:39 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:05:39 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:05:39 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:05:39 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:06:30 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:06:30 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:06:30 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:06:30 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:06:30 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:06:30 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:06:30 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:06:30 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:06:30 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:06:30 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:08:00 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:08:00 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:08:00 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:08:00 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:08:00 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:08:00 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:08:00 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:08:00 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:08:00 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:08:00 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:12 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:12 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:12 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:13 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:13 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:13 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:13 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:48 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:48 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:09:48 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:48 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:09:48 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:48 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:09:48 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:48 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:09:48 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:09:48 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:12:54 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:12:54 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:12:54 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:12:54 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:12:54 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:12:54 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:12:54 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:12:54 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:12:54 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:12:54 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:22:09 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:22:09 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:22:09 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:22:09 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:22:09 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:22:09 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:22:09 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:22:09 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:22:09 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:22:09 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:23:40 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:23:40 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:23:40 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:23:40 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:23:40 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:23:40 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:23:40 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:23:40 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:23:40 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:23:40 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:25:21 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:25:21 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:25:21 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:25:21 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:25:21 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:25:21 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:25:21 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:25:21 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:25:21 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:25:21 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:26:45 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:26:45 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:26:45 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:26:45 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:26:45 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:26:45 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:26:45 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:26:45 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:26:45 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:26:45 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:40:14 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:40:14 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:40:14 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:40:14 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:40:14 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:40:14 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:40:14 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:40:14 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:40:14 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:40:14 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:41:26 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:41:26 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:41:26 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:41:26 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:41:26 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:41:26 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:41:26 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:41:26 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:41:26 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:41:26 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:48:42 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:48:42 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:48:42 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:48:42 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:48:42 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:48:42 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:48:42 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:48:42 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:48:42 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:48:42 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:51:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:51:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:51:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:51:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:51:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:51:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:51:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:51:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:51:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:51:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:52:33 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:52:33 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:52:33 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:52:33 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:52:33 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:52:33 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:52:33 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:52:33 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:52:33 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:52:33 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:52:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:52:52 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:52:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:52:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:52:52 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:52:52 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:52:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:52:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:52:52 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:52:52 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:56:28 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:56:28 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 09:56:28 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:56:28 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:56:28 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 09:56:28 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 09:56:28 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:56:28 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 09:56:28 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 09:56:28 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:49:30 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:49:30 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:49:30 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:49:30 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:49:30 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:49:30 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:49:30 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:49:30 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:49:30 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:49:30 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:50:54 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:50:54 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:50:54 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:50:54 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:50:54 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:50:54 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:50:54 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:50:54 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:50:54 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:50:54 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:52:27 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:52:27 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:52:27 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:52:27 Europe/Berlin] Processing fetch_table.php request
+[09-Jun-2025 10:52:27 Europe/Berlin] Total records found: 3832
+[09-Jun-2025 10:52:27 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[09-Jun-2025 10:52:27 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:52:27 Europe/Berlin] Sending response with 188 records
+[09-Jun-2025 10:52:27 Europe/Berlin] Processed 188 rows of data
+[09-Jun-2025 10:52:27 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 06:27:47 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 06:27:47 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 06:27:47 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 06:27:47 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 06:27:47 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 06:27:47 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 06:27:47 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 06:27:47 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 06:27:47 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 06:27:47 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 06:50:14 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 06:50:14 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 06:50:14 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 06:50:14 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 06:50:14 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 06:50:14 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 06:50:14 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 06:50:14 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 06:50:14 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 06:50:14 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 07:55:24 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 07:55:24 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 07:55:24 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 07:55:24 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 07:55:24 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 07:55:24 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 07:55:24 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 07:55:24 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 07:55:24 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 07:55:24 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 07:57:11 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 07:57:11 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 07:57:11 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 07:57:11 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 07:57:11 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 07:57:11 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 07:57:11 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 07:57:11 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 07:57:11 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 07:57:11 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:05 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:05 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:05 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:05 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:05 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:05 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:05 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:05 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:05 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:05 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:15 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:15 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:15 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:15 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:15 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:15 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:15 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:15 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:15 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:15 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:22 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:22 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 08:01:22 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:22 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 08:01:22 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:22 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 08:01:22 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:22 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 08:01:22 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 08:01:22 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:15:06 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:15:06 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:15:06 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:15:06 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:15:06 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:15:06 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:15:06 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:15:06 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:15:06 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:15:06 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:18:50 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:18:50 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:18:50 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:18:50 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:18:50 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:18:50 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:18:50 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:18:50 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:18:50 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:18:50 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:19:33 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:19:33 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 09:19:33 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:19:33 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:19:33 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 09:19:33 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 09:19:33 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:19:33 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 09:19:33 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 09:19:33 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 10:32:47 Europe/Berlin] Database connection error: No connection could be made because the target machine actively refused it
+[10-Jun-2025 10:32:47 Europe/Berlin] Database connection error: No connection could be made because the target machine actively refused it
+[10-Jun-2025 10:32:48 Europe/Berlin] Database connection error: No connection could be made because the target machine actively refused it
+[10-Jun-2025 10:32:48 Europe/Berlin] Database connection error: No connection could be made because the target machine actively refused it
+[10-Jun-2025 11:05:00 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 11:05:00 Europe/Berlin] Processing fetch_table.php request
+[10-Jun-2025 11:05:00 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 11:05:00 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 11:05:00 Europe/Berlin] Total records found: 3832
+[10-Jun-2025 11:05:00 Europe/Berlin] Executing main query: SELECT 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        COUNT(*) as total_seats,
+        SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) as admitted_count,
+        MAX(TUITION_FEE + UNIVERSITY_FEE) as total_fees,
+        (COUNT(*) * MAX(TUITION_FEE + UNIVERSITY_FEE)) as expected_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN (TUITION_FEE + UNIVERSITY_FEE) ELSE 0 END) as actual_revenue,
+        SUM(CASE WHEN REGULAR = 1 THEN total_payable ELSE 0 END) as total_payable,
+        (SUM(CASE WHEN REGULAR = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as fill_rate,
+        REGULAR as regular_status
+    FROM 1_student_fee 
+    GROUP BY 
+        ACADEMIC_YEAR,
+        COLLEGE,
+        PROGRAMME,
+        COURSE,
+        DISCIPLINE,
+        QUOTA,
+        REGULAR
+    ORDER BY ACADEMIC_YEAR DESC, COLLEGE ASC
+[10-Jun-2025 11:05:00 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 11:05:00 Europe/Berlin] Sending response with 188 records
+[10-Jun-2025 11:05:00 Europe/Berlin] Processed 188 rows of data
+[10-Jun-2025 11:05:00 Europe/Berlin] Sending response with 188 records
