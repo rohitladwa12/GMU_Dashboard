@@ -1,5 +1,9 @@
 <!-- SIDEBAR CODE START -->
 <style>
+    /*
+     * Enhanced professional look for sidebar, keeping the same theme and layout.
+     * Subtle improvements: more modern shadow, smoother transitions, better spacing, and font polish.
+     */
     .sidebar {
         position: fixed;
         top: 60px;
@@ -7,32 +11,39 @@
         height: 100vh;
         width: 230px;
         background: #5B1F1F;
-        padding: 20px;
-        transition: all 0.3s ease;
+        padding: 28px 20px 28px 20px;
+        transition: all 0.3s cubic-bezier(.4,0,.2,1);
         z-index: 1000;
         overflow-y: auto;
         overflow-x: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 36px 0 rgba(44, 19, 19, 0.25), 0 2px 8px rgba(0,0,0,0.10);
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
     }
 
     .sidebar.collapsed {
-        width: 90px; /* Slightly wider when collapsed */
-        padding: 20px 10px; /* Adjust padding when collapsed */
+        width: 90px;
+        padding: 28px 8px;
+        border-radius: 0 18px 18px 0;
     }
 
     .sidebar .profile {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 34px;
         color: #ecc35c;
-        padding: 15px 10px;
+        padding: 20px 10px 14px 10px;
+        background: rgba(236,195,92,0.09);
+        border-radius: 14px;
+        box-shadow: 0 2px 10px rgba(236,195,92,0.10);
     }
 
     .sidebar .profile img {
-        width: 50px;
-        height: 50px;
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
         margin-bottom: 10px;
-        border: 2px solid #ecc35c;
+        border: 2.5px solid #ecc35c;
+        box-shadow: 0 2px 8px rgba(236,195,92,0.18);
     }
 
     .sidebar.collapsed .profile img {
@@ -42,75 +53,86 @@
     }
 
     .sidebar .profile h3 {
-        margin: 10px 0 5px;
+        margin: 10px 0 2px;
         color: #ecc35c;
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        font-family: 'Segoe UI', 'Arial', sans-serif;
     }
 
     .sidebar .profile p {
         color: #ecc35c;
-        font-size: 14px;
+        font-size: 13px;
         margin: 0;
         font-weight: 400;
+        opacity: 0.85;
     }
 
     .sidebar.collapsed .profile h3,
     .sidebar.collapsed .profile p {
-        display: none; /* Hide profile text when collapsed */
-    }
-
-    .sidebar.collapsed .profile i {
-        font-size: 3em; /* Make profile icon smaller when collapsed */
-        margin-bottom: 0;
+        display: none;
     }
 
     .sidebar nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .sidebar nav ul li {
-        margin-bottom: 20px; /* Increased gap between menu items */
+        margin-bottom: 20px;
     }
 
     .sidebar .dropbtn {
         display: flex;
         align-items: center;
-        padding: 12px 15px;
+        padding: 13px 18px;
         text-decoration: none;
-        background: linear-gradient(to left, #ecc35c, #f7f3b7, #ecc35c);
+        background: linear-gradient(90deg, #ecc35c 0%, #f7f3b7 60%, #ecc35c 100%);
         color: #5B1F1F;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        font-weight: 500;
+        border-radius: 8px;
+        transition: box-shadow 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+        font-size: 15px;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(236,195,92,0.10);
+        letter-spacing: 0.2px;
+        position: relative;
+    }
+
+    .sidebar .dropbtn:hover, .sidebar .dropbtn:focus {
+        background: linear-gradient(90deg, #f7f3b7 0%, #ecc35c 100%);
+        color: #3d1818;
+        box-shadow: 0 6px 20px rgba(236,195,92,0.16);
+        outline: none;
+        transform: translateY(-2px) scale(1.03);
     }
 
     .sidebar .dropbtn i {
-        margin-right: 15px; /* Adjusted spacing for icons */
-        width: 30px; /* Slightly wider icons */
+        margin-right: 14px;
+        width: 28px;
         text-align: center;
-        font-size: 1.5em; /* Bigger icons */
-        transition: all 0.3s ease;
+        font-size: 1.5em;
+        transition: color 0.2s;
+        color: #5B1F1F;
     }
 
     .sidebar.collapsed .dropbtn {
-        padding: 15px 10px; /* More padding in collapsed state */
-        justify-content: center; /* Center icon when collapsed */
+        padding: 16px 8px;
+        justify-content: center;
     }
 
     .sidebar.collapsed .dropbtn i {
         margin-right: 0;
-        font-size: 1.5em; /* Even bigger icons when collapsed */
+        font-size: 1.6em;
     }
 
     .sidebar .menu-text {
         flex: 1;
-        transition: opacity 0.3s ease;
-        font-size: 14px;
+        transition: opacity 0.3s;
+        font-size: 15px;
+        font-family: 'Segoe UI', 'Arial', sans-serif;
     }
 
     .sidebar.collapsed .menu-text {
@@ -119,7 +141,9 @@
 
     .sidebar .arrow {
         margin-left: 10px;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+        font-size: 1.1em;
+        opacity: 0.7;
     }
 
     .sidebar.collapsed .arrow {
@@ -128,38 +152,44 @@
 
     .dropdown-content {
         display: none;
-        background: linear-gradient(to left, #ecc35c, #f7f3b7, #ecc35c);
+        background: linear-gradient(90deg, #ecc35c 0%, #f7f3b7 60%, #ecc35c 100%);
         margin-left: 20px;
-        margin-top: 5px;
-        border-radius: 5px;
+        margin-top: 8px;
+        border-radius: 8px;
         overflow: hidden;
-        padding: 5px;  /* Add padding around all content */
-        margin-bottom: 25px; /* Increased gap after each dropdown content */
+        padding: 8px 6px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 14px rgba(236,195,92,0.13);
+        min-width: 170px;
     }
 
     .dropdown-content a {
-        padding: 12px 15px;
+        padding: 11px 18px;
         text-decoration: none;
         display: block;
         color: #5B1F1F;
-        transition: all 0.3s ease;
-        border-radius: 4px;  /* Rounded corners for each item */
-        margin: 5px 0;  /* Add vertical gap between items */
+        transition: background 0.18s, color 0.18s, transform 0.18s;
+        border-radius: 6px;
+        margin: 5px 0;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 500;
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        letter-spacing: 0.1px;
     }
 
     .dropdown-content a:first-child {
-        margin-top: 0;  /* Remove top margin for first item */
+        margin-top: 0;
     }
 
     .dropdown-content a:last-child {
-        margin-bottom: 0;  /* Remove bottom margin for last item */
+        margin-bottom: 0;
     }
 
-    .dropdown-content a:hover {
-        background: rgba(91, 31, 31, 0.1);
-        transform: translateX(5px);  /* Slight shift on hover */
+    .dropdown-content a:hover, .dropdown-content a:focus {
+        background: rgba(91, 31, 31, 0.13);
+        color: #3d1818;
+        transform: translateX(7px) scale(1.04);
+        outline: none;
     }
 
     .sidebar.collapsed .dropdown-content {
@@ -168,15 +198,13 @@
         margin-left: 5px;
         margin-top: -40px;
         min-width: 200px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Add shadow for floating menu */
+        box-shadow: 0 2px 16px rgba(0,0,0,0.13);
     }
 
     /* Hide scrollbar but keep functionality */
     .sidebar::-webkit-scrollbar {
         width: 0px;
     }
-
-    /* For Firefox */
     .sidebar {
         scrollbar-width: none;
     }
