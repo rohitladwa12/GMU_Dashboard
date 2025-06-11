@@ -370,31 +370,204 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .content {
-                margin-left: 0;
-                padding: 20px;
+                margin-left: 0 !important;
+                padding: 16px !important;
             }
 
             .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
+                left: -250px;
+                transition: left 0.3s cubic-bezier(.4, 0, .2, 1);
             }
 
-            .page-header h1 {
-                font-size: 24px;
+            .sidebar.active {
+                left: 0;
+                box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.25);
+            }
+
+            .sidebar.collapsed {
+                left: -90px;
+            }
+
+            .page-header {
+                padding: 18px 10px;
             }
 
             .dataTables_wrapper {
-                padding: 20px;
+                padding: 10px;
             }
 
             .dt-buttons {
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .dt-button {
+                min-width: 110px;
+                width: 45%;
+                margin: 2px 0;
+                font-size: 13px !important;
+                padding: 10px 0 !important;
+            }
+
+            .dataTables_filter {
+                width: 100%;
+                margin-bottom: 14px;
+            }
+
+            .dataTables_filter label {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
             }
 
             .dataTables_filter input {
                 width: 100% !important;
+                min-width: 0 !important;
+                font-size: 13px !important;
+                padding: 8px 10px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 8px !important;
+            }
+
+            .table-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 12px 8px;
+            }
+
+            .table-stats {
+                gap: 8px;
+                font-size: 12px;
+            }
+
+            .dataTables_wrapper {
+                padding: 2px;
+            }
+
+            .dt-buttons {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 8px !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-bottom: 14px !important;
+            }
+
+            .dt-button {
+                width: 24% !important;
+                min-width: 0 !important;
+                max-width: 25% !important;
+                font-size: 13px !important;
+                padding: 10px 0 !important;
+                margin: 0 !important;
+                border-radius: 7px !important;
+                background: #5B1F1F !important;
+                color: #fff !important;
+                box-shadow: 0 2px 8px rgba(91, 31, 31, 0.13) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 6px !important;
+                text-align: center !important;
+            }
+
+            .dt-button:before {
+                font-size: 1em !important;
+                margin-right: 6px !important;
+            }
+
+            .dataTables_filter label {
+                font-size: 13px;
+            }
+
+            table.dataTable thead th,
+            table.dataTable tbody td {
+                padding: 8px 4px !important;
+                font-size: 12px !important;
+            }
+
+            .dtsp-clearAll,
+            .dtsp-showAll {
+                display: inline-block !important;
+                width: 48% !important;
+                min-width: 0 !important;
+                margin: 0 1% 0 0 !important;
+                font-size: 13px !important;
+                padding: 10px 0 !important;
+                border-radius: 7px !important;
+                background: #5B1F1F !important;
+                color: #fff !important;
+                text-align: center !important;
+                box-shadow: 0 2px 8px rgba(91, 31, 31, 0.13) !important;
+            }
+
+            .dtsp-clearAll:last-child,
+            .dtsp-showAll:last-child {
+                margin-right: 0 !important;
+            }
+
+            .dataTables_paginate {
+                margin-top: 12px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+                gap: 0 !important;
+            }
+
+            .dataTables_paginate .paginate_button {
+                min-width: 32px !important;
+                height: 32px !important;
+                padding: 0 !important;
+                font-size: 13px !important;
+                border-radius: 6px !important;
+                margin: 0 2px 4px 2px !important;
+                background: #fff !important;
+                color: var(--primary-color) !important;
+                border: 1px solid var(--border-color) !important;
+                box-shadow: none !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                transition: background 0.2s, color 0.2s;
+            }
+
+            .dataTables_paginate .paginate_button.current {
+                background: var(--primary-color) !important;
+                color: #fff !important;
+                border-color: var(--primary-color) !important;
+            }
+
+            .dataTables_paginate .paginate_button:hover {
+                background: var(--primary-hover) !important;
+                color: #fff !important;
+                border-color: var(--primary-hover) !important;
+            }
+
+            .dataTables_paginate .ellipsis {
+                min-width: 24px !important;
+                font-size: 13px !important;
+                color: #888 !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 2px !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-toggle {
+                display: flex;
             }
         }
 
@@ -425,6 +598,9 @@
 </head>
 
 <body>
+    <button class="navbar-toggle" aria-label="Toggle Sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
     <?php include 'sidebar.php'; ?>
     <?php include 'navbar.php'; ?>
 
@@ -743,6 +919,14 @@
             // Handle responsive menu toggle (for mobile)
             $(document).on('click', '.navbar-toggle', function () {
                 $('.sidebar').toggleClass('active');
+            });
+            // Close sidebar when clicking outside on mobile
+            $(document).on('click touchstart', function (e) {
+                if ($(window).width() <= 1024) {
+                    if (!$(e.target).closest('.sidebar, .navbar-toggle').length && $('.sidebar').hasClass('active')) {
+                        $('.sidebar').removeClass('active');
+                    }
+                }
             });
         });
     </script>
